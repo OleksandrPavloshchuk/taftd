@@ -1,0 +1,39 @@
+HOW TO
+~~~~~~
+
+1. GENERATE SSL KEY AND CERTIFICATE
+
+openssl genrsa -out key.pem
+openssl req -new -key key.pem -out csr.pem
+openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem
+rm csr.pem
+
+2. MAKE THIS APPLICATION WORKING ON SAFARY ON IPAD
+
+Open in iPad's settings and set option 'Safary > Develop > Experimental Features > NSURLSession WebSocket' on.
+
+3. PASS SERVER CONFIGURATION PARAMETERS TO CLIENT JAVASCRIPT CODE
+
+Create "virtual" URL for script. Set this URL as "src" attribute of "script" tag. In HTTP server handler
+generate dynamic JavaScript code with necessary constants for this "virtual" URL instead of reading static file.
+
+2. CONVERT FILE INTO BASE64 FOR TRANSFERING AND BACK
+
+function toBase64(txt) {
+    return btoa(txt);
+}
+
+function fromBase64(data, type) {
+    const binary = atob(data);
+    const bytes = new Uint8Array(binary.length);
+    for (let i=0; i<bytes.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+    }  
+    const isText = type.substring(0,4)=='text'; // another detector can be used here
+    if (isText) {
+        return new TextDecoder('utf-8').decode(bytes);
+    } else {
+        return bytes.buffer;
+    }
+}
+

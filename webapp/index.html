@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css"/>        
+        <title>Text And File Transfer Demo</title>
+        <style type="text/css">
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="errorMessage" class="alert alert-warning"></div>
+            <main id="loginPage" class="row g-3">
+                <navbar class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand">TAFTD| 
+                            <span>Login</span>
+                        </div>
+                    </div>
+                </navbar>
+                <div class="row-auto">          
+                    <label for="inputMyId" class="form-label">User ID:</label>
+                    <input id="inputMyId" type="email" class="form-control" placeholder="user ID"/>
+                </div>
+                <div class="row-auto">          
+                    <button id="doLogin" class="btn btn-outline-success mb-3">
+                        <i class="bi-key"></i> Do Login</button>
+                </div>
+            </main>
+            <main id="callPage" class="row g-3">
+                <navbar class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand">TAFTD| 
+                            <span id="callTitle"></span>
+                        </div>                        
+                        <button id="doLogout" class="btn btn-outline-danger">
+                            <i class="bi-door-closed"></i> Logout</button>
+                    </div>
+                </navbar>
+                <div class="row-auto">          
+                    <label for="inputAbonentId" class="form-label">Abonent ID:</label>
+                    <input id="inputAbonentId" class="form-control" type="email" placeholder="abonent ID"/>
+                </div>
+                <div class="row-auto">          
+                    <button id="doCall" class="btn btn-outline-success mb-3">
+                        <i class="bi-telephone"></i> Call</button>
+                </div>
+            </main>
+            <main id="callingPage" class="row g-3">
+                <navbar class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand">TAFTD| 
+                            <span id="callingTitle">Calling</span>
+                        </div>                        
+                        <button id="doCallCancel" class="btn btn-outline-danger">
+                            <i class="bi-slash-circle"></i> Cancel Call</button>
+                    </div>
+                </navbar>
+            </main>
+            <main id="callResponsePage" class="row g-3">
+                <navbar class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand">TAFTD| 
+                            <span id="callResponseTitle">Call</span>
+                        </div>
+                    </div>
+                </navbar>
+                <div class="col-auto">
+                    <button id="doAccept" class="btn btn-outline-success mb-3">
+                        <i class="bi-check-circle"></i> Accept Call</button>
+                    <button id="doReject" class="btn btn-outline-danger mb-3">
+                        <i class="bi-slash-circle"></i> Reject Call</button>
+                </div>
+            </main>        
+            <main id="chatPage" class="row g-3">
+                <navbar class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand">TAFTD| 
+                            <span id="chatTitle">Chat</span>
+                        </div>
+                        <button id="doDisconnect" class="btn btn-outline-danger">
+                            <i class="bi-slash-circle"></i> Disconnect</button>
+                    </div>
+                </navbar>                
+                <div class="row-auto">
+                    <input id="chatMessage" type="text" class="form-control sm-col-10"/>
+                </div>
+                <div class="row-auto">
+                    <button id="doSend" class="btn btn-outline-primary mb-3">
+                        <i class="bi-chat-right"></i> Send</button>  
+                </div>
+                <div class="row-auto">
+                    <input id="selectFile" type="file" class="btn btn-outline-secondary mb-3" />
+                    <button id="doTransferFile" class="btn btn-outline-secondary mb-3">
+                        <i class="bi-cloud-upload"></i> Transfer File</button>  
+                </div>
+                <hr/>
+                <dl id="chatHistory" class="row"></dl> 
+                <a id="fileSaver"></a>
+            </main>
+            <main id="fileTransferingPage" class="row g-3">
+                <navbar class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="navbar-brand">TAFTD| 
+                            <span id="fileTransferingTitle">Calling</span>
+                        </div>                        
+                    </div>
+                </navbar>
+                <div class="row-auto">
+                    <div class="progress">
+                        <div id="fileTransferingProgress" class="progress-bar" 
+                         role="progressbar" ></div>
+                    </div>
+                </div>
+            </main>            
+        </div>
+        <script src="VIRTUAL/websocket-url.js"></script>    
+        <script src="index.js"></script>    
+    </body>
+</html>

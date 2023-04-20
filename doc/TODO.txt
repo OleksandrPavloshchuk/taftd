@@ -1,0 +1,12 @@
+TODO (by priority)
+~~~~~~~~~~~~~~~~~~
+
+1. Create 'File accept progress' screen.
+2. Switch off logging of transferred file data on server.
+3. (Optional) Support the list of connected users (with "bouncing").
+
+DONE
+~~~~
+1. Create 'Call cancel' screen in order to cancel attempt to call to another user.
+2. Add bootstrap icons to buttons.
+3. Create 'File transfer progress' screen.
